@@ -36,7 +36,7 @@ public class Resposta implements Serializable {
     @Column(name = "selecionado")
     private Boolean selecionado;
 
-    @OneToMany(mappedBy = "resposta")
+    @OneToMany(mappedBy = "respostaPai")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Resposta> detalhes = new HashSet<>();
 
@@ -46,7 +46,7 @@ public class Resposta implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "detalhes", allowSetters = true)
-    private Resposta resposta;
+    private Resposta respostaPai;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -107,13 +107,13 @@ public class Resposta implements Serializable {
 
     public Resposta addDetalhes(Resposta resposta) {
         this.detalhes.add(resposta);
-        resposta.setResposta(this);
+        resposta.setRespostaPai(this);
         return this;
     }
 
     public Resposta removeDetalhes(Resposta resposta) {
         this.detalhes.remove(resposta);
-        resposta.setResposta(null);
+        resposta.setRespostaPai(null);
         return this;
     }
 
@@ -134,17 +134,17 @@ public class Resposta implements Serializable {
         this.questao = questao;
     }
 
-    public Resposta getResposta() {
-        return resposta;
+    public Resposta getRespostaPai() {
+        return respostaPai;
     }
 
-    public Resposta resposta(Resposta resposta) {
-        this.resposta = resposta;
+    public Resposta respostaPai(Resposta resposta) {
+        this.respostaPai = resposta;
         return this;
     }
 
-    public void setResposta(Resposta resposta) {
-        this.resposta = resposta;
+    public void setRespostaPai(Resposta resposta) {
+        this.respostaPai = resposta;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

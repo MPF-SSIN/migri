@@ -27,7 +27,7 @@
                     <th scope="col" ><span jhiTranslate="migriApp.resposta.score">Score</span></th>
                     <th scope="col" ><span jhiTranslate="migriApp.resposta.selecionado">Selecionado</span></th>
                     <th scope="col" ><span jhiTranslate="migriApp.resposta.questao">Questao</span></th>
-                    <th scope="col" ><span jhiTranslate="migriApp.resposta.resposta">Resposta</span></th>
+                    <th scope="col" ><span jhiTranslate="migriApp.resposta.respostaPai">Resposta Pai</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -43,8 +43,8 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="resposta.resposta">
-                            <a [routerLink]="['/resposta', resposta.resposta?.id, 'view']" >{{ resposta.resposta?.id }}</a>
+                        <div *ngIf="resposta.respostaPai">
+                            <a [routerLink]="['/resposta', resposta.respostaPai?.id, 'view']" >{{ resposta.respostaPai?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

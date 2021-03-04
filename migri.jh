@@ -69,10 +69,10 @@ relationship ManyToOne{
 }
 
 relationship OneToMany {
-	Fator{questoes} to Questao
-    Questao{respostas} to Resposta
-    Questionario{fatores} to Fator
-    Resposta{detalhes} to Resposta
+	Fator{questoes} to Questao {fator}
+    Questao{respostas} to Resposta {questao}
+    Questionario{fatores} to Fator {questionario}
+    Resposta{detalhes} to Resposta {respostaPai}
 }
 
 

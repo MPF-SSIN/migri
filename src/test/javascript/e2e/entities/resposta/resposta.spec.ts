@@ -44,7 +44,7 @@ describe('Resposta e2e test', () => {
       respostaUpdatePage.setTextoInput('texto'),
       respostaUpdatePage.setScoreInput('5'),
       respostaUpdatePage.questaoSelectLastOption(),
-      respostaUpdatePage.respostaSelectLastOption(),
+      respostaUpdatePage.respostaPaiSelectLastOption(),
     ]);
 
     expect(await respostaUpdatePage.getTextoInput()).to.eq('texto', 'Expected Texto value to be equals to texto');

@@ -26,10 +26,10 @@
                         <a [routerLink]="['/questao', resposta.questao?.id, 'view']">{{ resposta.questao?.id }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="migriApp.resposta.resposta">Resposta</span></dt>
+                <dt><span jhiTranslate="migriApp.resposta.respostaPai">Resposta Pai</span></dt>
                 <dd>
-                    <div *ngIf="resposta.resposta">
-                        <a [routerLink]="['/resposta', resposta.resposta?.id, 'view']">{{ resposta.resposta?.id }}</a>
+                    <div *ngIf="resposta.respostaPai">
+                        <a [routerLink]="['/resposta', resposta.respostaPai?.id, 'view']">{{ resposta.respostaPai?.id }}</a>
                     </div>
                 </dd>
             </dl>

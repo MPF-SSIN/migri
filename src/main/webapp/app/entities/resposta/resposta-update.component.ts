@@ -27,7 +27,7 @@ export class RespostaUpdateComponent implements OnInit {
     score: [],
     selecionado: [],
     questao: [],
-    resposta: [],
+    respostaPai: [],
   });
 
   constructor(
@@ -54,7 +54,7 @@ export class RespostaUpdateComponent implements OnInit {
       score: resposta.score,
       selecionado: resposta.selecionado,
       questao: resposta.questao,
-      resposta: resposta.resposta,
+      respostaPai: resposta.respostaPai,
     });
   }
 
@@ -80,7 +80,7 @@ export class RespostaUpdateComponent implements OnInit {
       score: this.editForm.get(['score'])!.value,
       selecionado: this.editForm.get(['selecionado'])!.value,
       questao: this.editForm.get(['questao'])!.value,
-      resposta: this.editForm.get(['resposta'])!.value,
+      respostaPai: this.editForm.get(['respostaPai'])!.value,
     };
   }
 

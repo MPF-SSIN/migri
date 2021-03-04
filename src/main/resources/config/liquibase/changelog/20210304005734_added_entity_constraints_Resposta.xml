@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="questao"/>
 
-        <addForeignKeyConstraint baseColumnNames="resposta_id"
+        <addForeignKeyConstraint baseColumnNames="resposta_pai_id"
                                  baseTableName="resposta"
-                                 constraintName="fk_resposta_resposta_id"
+                                 constraintName="fk_resposta_resposta_pai_id"
                                  referencedColumnNames="id"
                                  referencedTableName="resposta"/>
 

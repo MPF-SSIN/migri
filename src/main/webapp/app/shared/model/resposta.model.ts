@@ -7,7 +7,7 @@ export interface IResposta {
   selecionado?: boolean;
   detalhes?: IResposta[];
   questao?: IQuestao;
-  resposta?: IResposta;
+  respostaPai?: IResposta;
 }
 
 export class Resposta implements IResposta {
@@ -18,7 +18,7 @@ export class Resposta implements IResposta {
     public selecionado?: boolean,
     public detalhes?: IResposta[],
     public questao?: IQuestao,
-    public resposta?: IResposta
+    public respostaPai?: IResposta
   ) {
     this.selecionado = this.selecionado || false;
   }
