@@ -1,0 +1,25 @@
+{
+  "migriApp": {
+    "lotacao": {
+      "home": {
+        "title": "Lotacaos",
+        "createLabel": "Create a new Lotacao",
+        "createOrEditLabel": "Create or edit a Lotacao",
+        "notFound": "No Lotacaos found"
+      },
+      "created": "A new Lotacao is created with identifier {{ param }}",
+      "updated": "A Lotacao is updated with identifier {{ param }}",
+      "deleted": "A Lotacao is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lotacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Lotacao"
+      },
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    }
+  }
+}

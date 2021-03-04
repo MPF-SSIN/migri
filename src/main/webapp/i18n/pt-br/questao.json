@@ -1,0 +1,27 @@
+{
+  "migriApp": {
+    "questao": {
+      "home": {
+        "title": "Questaos",
+        "createLabel": "Criar novo Questao",
+        "createOrEditLabel": "Criar ou editar Questao",
+        "notFound": "Nenhum Questao encontrado"
+      },
+      "created": "Um novo Questao foi criado com o identificador {{ param }}",
+      "updated": "Um Questao foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Questao foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Questao {{ id }}?"
+      },
+      "detail": {
+        "title": "Questao"
+      },
+      "tipo": "Tipo",
+      "recomendacao": "Recomendacao",
+      "pergunta": "Pergunta",
+      "multiplo": "Multiplo",
+      "respostas": "Respostas",
+      "fator": "Fator"
+    }
+  }
+}

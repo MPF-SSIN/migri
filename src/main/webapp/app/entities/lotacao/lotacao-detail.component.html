@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lotacao">
+            <h2><span jhiTranslate="migriApp.lotacao.detail.title">Lotacao</span> {{ lotacao.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="migriApp.lotacao.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ lotacao.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.lotacao.sigla">Sigla</span></dt>
+                <dd>
+                    <span>{{ lotacao.sigla }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.lotacao.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{ lotacao.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.lotacao.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{ lotacao.longitude }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lotacao', lotacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

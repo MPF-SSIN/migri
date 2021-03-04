@@ -1,0 +1,90 @@
+/**
+ * Questionario entity.
+ * @author Leandro Iglezias.
+ */
+entity Questionario {
+	identificacao String
+    dataRealizacao LocalDate
+}
+
+/**
+ * Fator entity.
+ * @author Leandro Iglezias.
+ */
+entity Fator{
+	nome String
+    pontuacao Float
+}
+/**
+ * Questao entity.
+ * @author Leandro Iglezias.
+ */
+entity Questao{
+	tipo String
+    recomendacao String
+    pergunta String
+    multiplo Boolean
+}
+/**
+ * Resposta entity.
+ * @author Leandro Iglezias.
+ */
+entity Resposta{
+	texto String
+    score Integer
+    selecionado Boolean
+}
+
+/**
+ * Lotacao entity.
+ * @author Leandro Iglezias.
+ */
+entity Lotacao {
+	nome String
+    sigla String
+    latitude Double
+    longitude Double
+}
+
+/**
+ * Pessoa entity.
+ * @author Leandro Iglezias.
+ */
+entity Pessoa{
+	nome String
+    cpf String
+    dataNascimento LocalDate
+    matricula String    
+}
+
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+relationship ManyToOne{
+	Questionario{lotacao} to Lotacao
+    Pessoa{lotacao} to Lotacao
+    Questionario{pessoa} to Pessoa
+}
+
+relationship OneToMany {
+	Fator{questoes} to Questao
+    Questao{respostas} to Resposta
+    Questionario{fatores} to Fator
+    Resposta{detalhes} to Resposta
+}
+
+
+// Set pagination options
+paginate Fator, Questao with infinite-scroll
+paginate Questionario with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

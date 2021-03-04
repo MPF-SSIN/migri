@@ -1,0 +1,48 @@
+{
+  "name": "Questao",
+  "fields": [
+    {
+      "fieldName": "tipo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "recomendacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pergunta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "multiplo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resposta",
+      "otherEntityRelationshipName": "questao",
+      "relationshipName": "respostas"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fator",
+      "otherEntityRelationshipName": "questoes",
+      "relationshipName": "fator",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304005634",
+  "javadoc": "Questao entity.\\n@author Leandro Iglezias.",
+  "entityTableName": "questao",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

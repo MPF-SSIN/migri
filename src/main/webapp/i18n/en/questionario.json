@@ -1,0 +1,26 @@
+{
+  "migriApp": {
+    "questionario": {
+      "home": {
+        "title": "Questionarios",
+        "createLabel": "Create a new Questionario",
+        "createOrEditLabel": "Create or edit a Questionario",
+        "notFound": "No Questionarios found"
+      },
+      "created": "A new Questionario is created with identifier {{ param }}",
+      "updated": "A Questionario is updated with identifier {{ param }}",
+      "deleted": "A Questionario is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questionario {{ id }}?"
+      },
+      "detail": {
+        "title": "Questionario"
+      },
+      "identificacao": "Identificacao",
+      "dataRealizacao": "Data Realizacao",
+      "fatores": "Fatores",
+      "lotacao": "Lotacao",
+      "pessoa": "Pessoa"
+    }
+  }
+}

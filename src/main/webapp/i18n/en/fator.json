@@ -1,0 +1,25 @@
+{
+  "migriApp": {
+    "fator": {
+      "home": {
+        "title": "Fators",
+        "createLabel": "Create a new Fator",
+        "createOrEditLabel": "Create or edit a Fator",
+        "notFound": "No Fators found"
+      },
+      "created": "A new Fator is created with identifier {{ param }}",
+      "updated": "A Fator is updated with identifier {{ param }}",
+      "deleted": "A Fator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fator {{ id }}?"
+      },
+      "detail": {
+        "title": "Fator"
+      },
+      "nome": "Nome",
+      "pontuacao": "Pontuacao",
+      "questoes": "Questoes",
+      "questionario": "Questionario"
+    }
+  }
+}

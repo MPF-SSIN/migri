@@ -1,0 +1,47 @@
+{
+  "name": "Questionario",
+  "fields": [
+    {
+      "fieldName": "identificacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataRealizacao",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fator",
+      "otherEntityRelationshipName": "questionario",
+      "relationshipName": "fatores"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "lotacao",
+      "otherEntityRelationshipName": "questionario",
+      "relationshipName": "lotacao",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "questionario",
+      "relationshipName": "pessoa",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304005434",
+  "javadoc": "Questionario entity.\\n@author Leandro Iglezias.",
+  "entityTableName": "questionario",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fator">
+            <h2><span jhiTranslate="migriApp.fator.detail.title">Fator</span> {{ fator.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="migriApp.fator.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ fator.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.fator.pontuacao">Pontuacao</span></dt>
+                <dd>
+                    <span>{{ fator.pontuacao }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.fator.questionario">Questionario</span></dt>
+                <dd>
+                    <div *ngIf="fator.questionario">
+                        <a [routerLink]="['/questionario', fator.questionario?.id, 'view']">{{ fator.questionario?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fator', fator.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
