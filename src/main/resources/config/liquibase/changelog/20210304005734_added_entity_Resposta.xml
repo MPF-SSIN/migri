@@ -27,7 +27,7 @@
             <column name="questao_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="resposta_id" type="bigint">
+            <column name="resposta_pai_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

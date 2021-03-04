@@ -38,10 +38,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="migriApp.resposta.resposta" for="field_resposta">Resposta</label>
-                    <select class="form-control" id="field_resposta" name="resposta" formControlName="resposta">
+                    <label class="form-control-label" jhiTranslate="migriApp.resposta.respostaPai" for="field_respostaPai">Resposta Pai</label>
+                    <select class="form-control" id="field_respostaPai" name="respostaPai" formControlName="respostaPai">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="respostaOption.id === editForm.get('resposta')!.value?.id ? editForm.get('resposta')!.value : respostaOption" *ngFor="let respostaOption of respostas; trackBy: trackById">{{ respostaOption.id }}</option>
+                        <option [ngValue]="respostaOption.id === editForm.get('respostaPai')!.value?.id ? editForm.get('respostaPai')!.value : respostaOption" *ngFor="let respostaOption of respostas; trackBy: trackById">{{ respostaOption.id }}</option>
                     </select>
                 </div>
             </div>

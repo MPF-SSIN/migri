@@ -34,7 +34,7 @@ export class RespostaUpdatePage {
   selecionadoInput = element(by.id('field_selecionado'));
 
   questaoSelect = element(by.id('field_questao'));
-  respostaSelect = element(by.id('field_resposta'));
+  respostaPaiSelect = element(by.id('field_respostaPai'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -76,20 +76,20 @@ export class RespostaUpdatePage {
     return await this.questaoSelect.element(by.css('option:checked')).getText();
   }
 
-  async respostaSelectLastOption(): Promise<void> {
-    await this.respostaSelect.all(by.tagName('option')).last().click();
+  async respostaPaiSelectLastOption(): Promise<void> {
+    await this.respostaPaiSelect.all(by.tagName('option')).last().click();
   }
 
-  async respostaSelectOption(option: string): Promise<void> {
-    await this.respostaSelect.sendKeys(option);
+  async respostaPaiSelectOption(option: string): Promise<void> {
+    await this.respostaPaiSelect.sendKeys(option);
   }
 
-  getRespostaSelect(): ElementFinder {
-    return this.respostaSelect;
+  getRespostaPaiSelect(): ElementFinder {
+    return this.respostaPaiSelect;
   }
 
-  async getRespostaSelectedOption(): Promise<string> {
-    return await this.respostaSelect.element(by.css('option:checked')).getText();
+  async getRespostaPaiSelectedOption(): Promise<string> {
+    return await this.respostaPaiSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {
