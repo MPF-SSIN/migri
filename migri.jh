@@ -54,7 +54,8 @@ entity Pessoa{
 	nome String
     cpf String
     dataNascimento LocalDate
-    matricula String    
+    matricula String   
+    foto ImageBlob
 }
 
 
