@@ -1,0 +1,42 @@
+{
+  "name": "Pessoa",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "matricula",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "lotacao",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "lotacao",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304005934",
+  "javadoc": "Pessoa entity.\\n@author Leandro Iglezias.",
+  "entityTableName": "pessoa",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

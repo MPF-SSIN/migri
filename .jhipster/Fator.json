@@ -1,0 +1,40 @@
+{
+  "name": "Fator",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pontuacao",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "questao",
+      "otherEntityRelationshipName": "fator",
+      "relationshipName": "questoes"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "questionario",
+      "otherEntityRelationshipName": "fatores",
+      "relationshipName": "questionario",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304005534",
+  "javadoc": "Fator entity.\\n@author Leandro Iglezias.",
+  "entityTableName": "fator",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

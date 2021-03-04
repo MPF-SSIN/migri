@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questao">
+            <h2><span jhiTranslate="migriApp.questao.detail.title">Questao</span> {{ questao.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="migriApp.questao.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{ questao.tipo }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.questao.recomendacao">Recomendacao</span></dt>
+                <dd>
+                    <span>{{ questao.recomendacao }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.questao.pergunta">Pergunta</span></dt>
+                <dd>
+                    <span>{{ questao.pergunta }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.questao.multiplo">Multiplo</span></dt>
+                <dd>
+                    <span>{{ questao.multiplo }}</span>
+                </dd>
+                <dt><span jhiTranslate="migriApp.questao.fator">Fator</span></dt>
+                <dd>
+                    <div *ngIf="questao.fator">
+                        <a [routerLink]="['/fator', questao.fator?.id, 'view']">{{ questao.fator?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/questao', questao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

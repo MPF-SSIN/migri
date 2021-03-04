@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-questionario-heading" jhiTranslate="migriApp.questionario.home.createOrEditLabel">Create or edit a Questionario</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="migriApp.questionario.identificacao" for="field_identificacao">Identificacao</label>
+                    <input type="text" class="form-control" name="identificacao" id="field_identificacao"
+                           formControlName="identificacao"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="migriApp.questionario.dataRealizacao" for="field_dataRealizacao">Data Realizacao</label>
+                    <div class="input-group">
+                        <input id="field_dataRealizacao" type="text" class="form-control" name="dataRealizacao" ngbDatepicker #dataRealizacaoDp="ngbDatepicker" formControlName="dataRealizacao"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataRealizacaoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="migriApp.questionario.lotacao" for="field_lotacao">Lotacao</label>
+                    <select class="form-control" id="field_lotacao" name="lotacao" formControlName="lotacao">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lotacaoOption.id === editForm.get('lotacao')!.value?.id ? editForm.get('lotacao')!.value : lotacaoOption" *ngFor="let lotacaoOption of lotacaos; trackBy: trackById">{{ lotacaoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="migriApp.questionario.pessoa" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" formControlName="pessoa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === editForm.get('pessoa')!.value?.id ? editForm.get('pessoa')!.value : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackById">{{ pessoaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

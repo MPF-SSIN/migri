@@ -1,0 +1,51 @@
+{
+  "name": "Resposta",
+  "fields": [
+    {
+      "fieldName": "texto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "selecionado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resposta",
+      "otherEntityRelationshipName": "resposta",
+      "relationshipName": "detalhes"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "questao",
+      "otherEntityRelationshipName": "respostas",
+      "relationshipName": "questao",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "resposta",
+      "otherEntityRelationshipName": "detalhes",
+      "relationshipName": "resposta",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304005734",
+  "javadoc": "Resposta entity.\\n@author Leandro Iglezias.",
+  "entityTableName": "resposta",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

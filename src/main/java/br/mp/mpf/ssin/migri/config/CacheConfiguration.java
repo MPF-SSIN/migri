@@ -47,6 +47,16 @@ public class CacheConfiguration {
             createCache(cm, br.mp.mpf.ssin.migri.domain.User.class.getName());
             createCache(cm, br.mp.mpf.ssin.migri.domain.Authority.class.getName());
             createCache(cm, br.mp.mpf.ssin.migri.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Questionario.class.getName());
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Questionario.class.getName() + ".fatores");
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Fator.class.getName());
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Fator.class.getName() + ".questoes");
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Questao.class.getName());
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Questao.class.getName() + ".respostas");
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Resposta.class.getName());
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Resposta.class.getName() + ".detalhes");
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Lotacao.class.getName());
+            createCache(cm, br.mp.mpf.ssin.migri.domain.Pessoa.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -14,7 +14,18 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005434_added_entity_Questionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005534_added_entity_Fator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005634_added_entity_Questao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005734_added_entity_Resposta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005834_added_entity_Lotacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005934_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210304005434_added_entity_constraints_Questionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005534_added_entity_constraints_Fator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005634_added_entity_constraints_Questao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005734_added_entity_constraints_Resposta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210304005934_added_entity_constraints_Pessoa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
