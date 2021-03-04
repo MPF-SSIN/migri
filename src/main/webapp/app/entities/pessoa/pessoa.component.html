@@ -27,6 +27,7 @@
                     <th scope="col" ><span jhiTranslate="migriApp.pessoa.cpf">Cpf</span></th>
                     <th scope="col" ><span jhiTranslate="migriApp.pessoa.dataNascimento">Data Nascimento</span></th>
                     <th scope="col" ><span jhiTranslate="migriApp.pessoa.matricula">Matricula</span></th>
+                    <th scope="col" ><span jhiTranslate="migriApp.pessoa.foto">Foto</span></th>
                     <th scope="col" ><span jhiTranslate="migriApp.pessoa.lotacao">Lotacao</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -38,6 +39,12 @@
                     <td>{{ pessoa.cpf }}</td>
                     <td>{{ pessoa.dataNascimento | date:'mediumDate' }}</td>
                     <td>{{ pessoa.matricula }}</td>
+                    <td>
+                        <a *ngIf="pessoa.foto" (click)="openFile(pessoa.fotoContentType, pessoa.foto)">
+                            <img [src]="'data:' + pessoa.fotoContentType + ';base64,' + pessoa.foto" style="max-height: 30px;" alt="pessoa image"/>
+                        </a>
+                        <span *ngIf="pessoa.foto">{{ pessoa.fotoContentType }}, {{ byteSize(pessoa.foto) }}</span>
+                    </td>
                     <td>
                         <div *ngIf="pessoa.lotacao">
                             <a [routerLink]="['/lotacao', pessoa.lotacao?.id, 'view']" >{{ pessoa.lotacao?.id }}</a>

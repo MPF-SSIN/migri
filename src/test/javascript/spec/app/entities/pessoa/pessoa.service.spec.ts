@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Pessoa(0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA');
+      elemDefault = new Pessoa(0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA', 'image/png', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -73,6 +73,7 @@ describe('Service Tests', () => {
             cpf: 'BBBBBB',
             dataNascimento: currentDate.format(DATE_FORMAT),
             matricula: 'BBBBBB',
+            foto: 'BBBBBB',
           },
           elemDefault
         );
@@ -98,6 +99,7 @@ describe('Service Tests', () => {
             cpf: 'BBBBBB',
             dataNascimento: currentDate.format(DATE_FORMAT),
             matricula: 'BBBBBB',
+            foto: 'BBBBBB',
           },
           elemDefault
         );

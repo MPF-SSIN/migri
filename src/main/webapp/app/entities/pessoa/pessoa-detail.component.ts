@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { JhiDataUtils } from 'ng-jhipster';
 
 import { IPessoa } from 'app/shared/model/pessoa.model';
 
@@ -10,10 +11,18 @@ import { IPessoa } from 'app/shared/model/pessoa.model';
 export class PessoaDetailComponent implements OnInit {
   pessoa: IPessoa | null = null;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ pessoa }) => (this.pessoa = pessoa));
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType = '', base64String: string): void {
+    this.dataUtils.openFile(contentType, base64String);
   }
 
   previousState(): void {

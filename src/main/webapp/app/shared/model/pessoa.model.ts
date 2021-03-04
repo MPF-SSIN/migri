@@ -7,6 +7,8 @@ export interface IPessoa {
   cpf?: string;
   dataNascimento?: Moment;
   matricula?: string;
+  fotoContentType?: string;
+  foto?: any;
   lotacao?: ILotacao;
 }
 
@@ -17,6 +19,8 @@ export class Pessoa implements IPessoa {
     public cpf?: string,
     public dataNascimento?: Moment,
     public matricula?: string,
+    public fotoContentType?: string,
+    public foto?: any,
     public lotacao?: ILotacao
   ) {}
 }

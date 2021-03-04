@@ -24,6 +24,15 @@
                 <dd>
                     <span>{{ pessoa.matricula }}</span>
                 </dd>
+                <dt><span jhiTranslate="migriApp.pessoa.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="pessoa.foto">
+                        <a (click)="openFile(pessoa.fotoContentType, pessoa.foto)">
+                            <img [src]="'data:' + pessoa.fotoContentType + ';base64,' + pessoa.foto" style="max-width: 100%;" alt="pessoa image"/>
+                        </a>
+                        {{ pessoa.fotoContentType }}, {{ byteSize(pessoa.foto) }}
+                    </div>
+                </dd>
                 <dt><span jhiTranslate="migriApp.pessoa.lotacao">Lotacao</span></dt>
                 <dd>
                     <div *ngIf="pessoa.lotacao">
