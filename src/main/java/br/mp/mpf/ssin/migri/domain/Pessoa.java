@@ -38,6 +38,13 @@ public class Pessoa implements Serializable {
     @Column(name = "matricula")
     private String matricula;
 
+    @Lob
+    @Column(name = "foto")
+    private byte[] foto;
+
+    @Column(name = "foto_content_type")
+    private String fotoContentType;
+
     @ManyToOne
     @JsonIgnoreProperties(value = "pessoas", allowSetters = true)
     private Lotacao lotacao;
@@ -103,6 +110,32 @@ public class Pessoa implements Serializable {
         this.matricula = matricula;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public Pessoa foto(byte[] foto) {
+        this.foto = foto;
+        return this;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public String getFotoContentType() {
+        return fotoContentType;
+    }
+
+    public Pessoa fotoContentType(String fotoContentType) {
+        this.fotoContentType = fotoContentType;
+        return this;
+    }
+
+    public void setFotoContentType(String fotoContentType) {
+        this.fotoContentType = fotoContentType;
+    }
+
     public Lotacao getLotacao() {
         return lotacao;
     }
@@ -142,6 +175,8 @@ public class Pessoa implements Serializable {
             ", cpf='" + getCpf() + "'" +
             ", dataNascimento='" + getDataNascimento() + "'" +
             ", matricula='" + getMatricula() + "'" +
+            ", foto='" + getFoto() + "'" +
+            ", fotoContentType='" + getFotoContentType() + "'" +
             "}";
     }
 }

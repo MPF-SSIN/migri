@@ -33,6 +33,7 @@ export class PessoaUpdatePage {
   cpfInput = element(by.id('field_cpf'));
   dataNascimentoInput = element(by.id('field_dataNascimento'));
   matriculaInput = element(by.id('field_matricula'));
+  fotoInput = element(by.id('file_foto'));
 
   lotacaoSelect = element(by.id('field_lotacao'));
 
@@ -70,6 +71,14 @@ export class PessoaUpdatePage {
 
   async getMatriculaInput(): Promise<string> {
     return await this.matriculaInput.getAttribute('value');
+  }
+
+  async setFotoInput(foto: string): Promise<void> {
+    await this.fotoInput.sendKeys(foto);
+  }
+
+  async getFotoInput(): Promise<string> {
+    return await this.fotoInput.getAttribute('value');
   }
 
   async lotacaoSelectLastOption(): Promise<void> {

@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -44,6 +45,11 @@ public class PessoaResourceIT {
     private static final String DEFAULT_MATRICULA = "AAAAAAAAAA";
     private static final String UPDATED_MATRICULA = "BBBBBBBBBB";
 
+    private static final byte[] DEFAULT_FOTO = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FOTO = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_FOTO_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FOTO_CONTENT_TYPE = "image/png";
+
     @Autowired
     private PessoaRepository pessoaRepository;
 
@@ -69,7 +75,9 @@ public class PessoaResourceIT {
             .nome(DEFAULT_NOME)
             .cpf(DEFAULT_CPF)
             .dataNascimento(DEFAULT_DATA_NASCIMENTO)
-            .matricula(DEFAULT_MATRICULA);
+            .matricula(DEFAULT_MATRICULA)
+            .foto(DEFAULT_FOTO)
+            .fotoContentType(DEFAULT_FOTO_CONTENT_TYPE);
         return pessoa;
     }
     /**
@@ -83,7 +91,9 @@ public class PessoaResourceIT {
             .nome(UPDATED_NOME)
             .cpf(UPDATED_CPF)
             .dataNascimento(UPDATED_DATA_NASCIMENTO)
-            .matricula(UPDATED_MATRICULA);
+            .matricula(UPDATED_MATRICULA)
+            .foto(UPDATED_FOTO)
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
         return pessoa;
     }
 
@@ -110,6 +120,8 @@ public class PessoaResourceIT {
         assertThat(testPessoa.getCpf()).isEqualTo(DEFAULT_CPF);
         assertThat(testPessoa.getDataNascimento()).isEqualTo(DEFAULT_DATA_NASCIMENTO);
         assertThat(testPessoa.getMatricula()).isEqualTo(DEFAULT_MATRICULA);
+        assertThat(testPessoa.getFoto()).isEqualTo(DEFAULT_FOTO);
+        assertThat(testPessoa.getFotoContentType()).isEqualTo(DEFAULT_FOTO_CONTENT_TYPE);
     }
 
     @Test
@@ -146,7 +158,9 @@ public class PessoaResourceIT {
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF)))
             .andExpect(jsonPath("$.[*].dataNascimento").value(hasItem(DEFAULT_DATA_NASCIMENTO.toString())))
-            .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA)));
+            .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA)))
+            .andExpect(jsonPath("$.[*].fotoContentType").value(hasItem(DEFAULT_FOTO_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].foto").value(hasItem(Base64Utils.encodeToString(DEFAULT_FOTO))));
     }
     
     @Test
@@ -163,7 +177,9 @@ public class PessoaResourceIT {
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF))
             .andExpect(jsonPath("$.dataNascimento").value(DEFAULT_DATA_NASCIMENTO.toString()))
-            .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA));
+            .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA))
+            .andExpect(jsonPath("$.fotoContentType").value(DEFAULT_FOTO_CONTENT_TYPE))
+            .andExpect(jsonPath("$.foto").value(Base64Utils.encodeToString(DEFAULT_FOTO)));
     }
     @Test
     @Transactional
@@ -189,7 +205,9 @@ public class PessoaResourceIT {
             .nome(UPDATED_NOME)
             .cpf(UPDATED_CPF)
             .dataNascimento(UPDATED_DATA_NASCIMENTO)
-            .matricula(UPDATED_MATRICULA);
+            .matricula(UPDATED_MATRICULA)
+            .foto(UPDATED_FOTO)
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
 
         restPessoaMockMvc.perform(put("/api/pessoas")
             .contentType(MediaType.APPLICATION_JSON)
@@ -204,6 +222,8 @@ public class PessoaResourceIT {
         assertThat(testPessoa.getCpf()).isEqualTo(UPDATED_CPF);
         assertThat(testPessoa.getDataNascimento()).isEqualTo(UPDATED_DATA_NASCIMENTO);
         assertThat(testPessoa.getMatricula()).isEqualTo(UPDATED_MATRICULA);
+        assertThat(testPessoa.getFoto()).isEqualTo(UPDATED_FOTO);
+        assertThat(testPessoa.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
     }
 
     @Test

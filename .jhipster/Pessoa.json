@@ -16,6 +16,11 @@
     {
       "fieldName": "matricula",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "foto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
     }
   ],
   "relationships": [

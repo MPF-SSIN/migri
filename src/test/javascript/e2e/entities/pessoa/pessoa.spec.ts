@@ -2,6 +2,7 @@ import { browser, ExpectedConditions as ec, promise } from 'protractor';
 import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 
 import { PessoaComponentsPage, PessoaDeleteDialog, PessoaUpdatePage } from './pessoa.page-object';
+import * as path from 'path';
 
 const expect = chai.expect;
 
@@ -11,6 +12,9 @@ describe('Pessoa e2e test', () => {
   let pessoaComponentsPage: PessoaComponentsPage;
   let pessoaUpdatePage: PessoaUpdatePage;
   let pessoaDeleteDialog: PessoaDeleteDialog;
+  const fileNameToUpload = 'logo-jhipster.png';
+  const fileToUpload = '../../../../../../src/main/webapp/content/images/' + fileNameToUpload;
+  const absolutePath = path.resolve(__dirname, fileToUpload);
 
   before(async () => {
     await browser.get('/');
@@ -45,6 +49,7 @@ describe('Pessoa e2e test', () => {
       pessoaUpdatePage.setCpfInput('cpf'),
       pessoaUpdatePage.setDataNascimentoInput('2000-12-31'),
       pessoaUpdatePage.setMatriculaInput('matricula'),
+      pessoaUpdatePage.setFotoInput(absolutePath),
       pessoaUpdatePage.lotacaoSelectLastOption(),
     ]);
 
@@ -52,6 +57,7 @@ describe('Pessoa e2e test', () => {
     expect(await pessoaUpdatePage.getCpfInput()).to.eq('cpf', 'Expected Cpf value to be equals to cpf');
     expect(await pessoaUpdatePage.getDataNascimentoInput()).to.eq('2000-12-31', 'Expected dataNascimento value to be equals to 2000-12-31');
     expect(await pessoaUpdatePage.getMatriculaInput()).to.eq('matricula', 'Expected Matricula value to be equals to matricula');
+    expect(await pessoaUpdatePage.getFotoInput()).to.endsWith(fileNameToUpload, 'Expected Foto value to be end with ' + fileNameToUpload);
 
     await pessoaUpdatePage.save();
     expect(await pessoaUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;
